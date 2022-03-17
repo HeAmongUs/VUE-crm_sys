@@ -1,20 +1,21 @@
 <template>
-  <ul class="sidenav app-sidenav" :class="{'open': isOpen}" style="margin-top: 60px">
+  <ul
+    class="sidenav app-sidenav"
+    :class="{ open: isOpen }"
+    style="margin-top: 60px"
+  >
     <li
-        v-for="link in links"
-        :key="link.url"
-        @click="$router.push(link.url)"
-        :class="{
-         'active': $route.path === link.url
-        }"
-      >
-      <a
-          class="waves-effect waves-orange pointer"
-      >
+      v-for="link in links"
+      :key="link.url"
+      @click="$router.push(link.url)"
+      :class="{
+        active: $route.path === link.url,
+      }"
+    >
+      <a class="waves-effect waves-orange pointer">
         {{ link.title }}
       </a>
     </li>
-
   </ul>
 </template>
 
@@ -24,21 +25,21 @@ export default {
   props: {
     isOpen: {
       type: Boolean,
-      required: true
-    }
+      required: true,
+    },
   },
-  data: () => ({
-    links: [
-      {title: 'Счет', url: '/'},
-      {title: 'История', url: '/history'},
-      {title: 'Планирование', url: '/planing'},
-      {title: 'Новая запись', url: '/record'},
-      {title: 'Категории', url: '/categories'},
-    ]
-  })
-}
+  data() {
+    return {
+      links: [
+        { title: "Счет", url: "/" },
+        { title: "История", url: "/history" },
+        { title: "Планирование", url: "/planing" },
+        { title: "Новая запись", url: "/record" },
+        { title: "Категории", url: "/categories" },
+      ],
+    };
+  },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

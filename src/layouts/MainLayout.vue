@@ -1,11 +1,10 @@
 <template>
   <div class="app-main-layout">
+    <Navbar @navbarClick="isOpen = !isOpen" />
 
-    <Navbar @navbarClick="isOpen = !isOpen"/>
+    <Sidebar :isOpen="isOpen" />
 
-    <Sidebar :isOpen="isOpen"/>
-
-    <main class="app-content" :class="{'full': !isOpen}">
+    <main class="app-content" :class="{ full: !isOpen }">
       <div class="app-page">
         <router-view />
       </div>
@@ -24,14 +23,13 @@ import Navbar from "@/components/app/Navbar";
 import Sidebar from "@/components/app/Sidebar";
 export default {
   name: "MainLayout",
-  components: {Navbar, Sidebar},
-  data: () => ({
-    isOpen: true,
-
-  }),
-}
+  components: { Navbar, Sidebar },
+  data() {
+    return {
+      isOpen: true,
+    };
+  },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -5,22 +5,22 @@
         <a href="#" @click.prevent="$emit('navbarClick')">
           <i class="material-icons black-text">dehaze</i>
         </a>
-        <span class="black-text">{{ dateFilter(date, 'datetime') }}</span>
+        <span class="black-text">{{ dateFilter(date, "datetime") }}</span>
       </div>
 
       <ul class="right hide-on-small-and-down">
         <li>
           <a
-              class="dropdown-trigger black-text"
-              href="#"
-              data-target="dropdown"
-                ref="dropdown"
+            class="dropdown-trigger black-text"
+            href="#"
+            data-target="dropdown"
+            ref="dropdown"
           >
             USER NAME
             <i class="material-icons right">arrow_drop_down</i>
           </a>
 
-          <ul id='dropdown' class='dropdown-content'>
+          <ul id="dropdown" class="dropdown-content">
             <li>
               <router-link to="/profile" class="black-text">
                 <i class="material-icons">account_circle</i>Профиль
@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import dateFilter from '@/filters/dateFilter'
+import dateFilter from "@/filters/dateFilter";
 
 export default {
   name: "Navbar",
@@ -48,30 +48,28 @@ export default {
     date: new Date(),
     interval: null,
     dropdown: null,
-    dateFilter: dateFilter
+    dateFilter: dateFilter,
   }),
   methods: {
-    logout(){
-      this.$router.push('/login?message=logout')
+    logout() {
+      this.$router.push("/login?message=logout");
     },
   },
   mounted() {
     this.interval = setInterval(() => {
-      this.date = new Date()
-    }, 1000)
-    this.dropdown = M.Dropdown.init(this.$refs.dropdown, {
-      constrainWidth: false
-    })
+      this.date = new Date();
+    }, 1000);
+    this.dropdown = window.M.Dropdown.init(this.$refs.dropdown, {
+      constrainWidth: false,
+    });
   },
-  beforeDestroy() {
-    clearInterval(this.interval)
-    if (this.dropdown && this.dropdown.destroy){
-      this.dropdown.destroy()
+  beforeUnmount() {
+    clearInterval(this.interval);
+    if (this.dropdown && this.dropdown.destroy) {
+      this.dropdown.destroy();
     }
-  }
-}
+  },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
