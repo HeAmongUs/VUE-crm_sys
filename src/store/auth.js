@@ -25,7 +25,7 @@ export default {
       await createUserWithEmailAndPassword(firebase.auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
-          set(ref(firebase.database, "users/" + user.uid), {
+          set(ref(firebase.database, `users/${user.uid}/info`), {
             username: name,
             email: email,
             bill: 10000,
@@ -37,7 +37,7 @@ export default {
           throw error;
         });
     },
-    async logout() {
+    async logout({ commit }) {
       await signOut(firebase.auth)
         .then(() => {
           console.log("Sign-out successful.");
@@ -45,6 +45,11 @@ export default {
         .catch((error) => {
           console.log(error);
         });
+      commit("clearInfo");
+    },
+    getUid() {
+      const user = firebase.auth.currentUser;
+      return user ? user.uid : null;
     },
   },
 };

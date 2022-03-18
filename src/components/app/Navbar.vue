@@ -16,7 +16,7 @@
             data-target="dropdown"
             ref="dropdown"
           >
-            USER NAME
+            {{ username }}
             <i class="material-icons right">arrow_drop_down</i>
           </a>
 
@@ -69,6 +69,11 @@ export default {
     if (this.dropdown && this.dropdown.destroy) {
       this.dropdown.destroy();
     }
+  },
+  computed: {
+    username() {
+      return this.$store.getters.info.username;
+    },
   },
 };
 </script>

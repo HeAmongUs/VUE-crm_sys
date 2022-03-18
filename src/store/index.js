@@ -1,5 +1,6 @@
 import { createStore } from "vuex";
-import auth from "./auth";
+import auth from "@/store/auth";
+import userInfo from "@/store/userInfo";
 
 export default createStore({
   state: {
@@ -16,8 +17,16 @@ export default createStore({
   getters: {
     error: (state) => state.error,
   },
-  actions: {},
+  actions: {
+    async fetchCurrency() {
+      const key = process.env.VUE_APP_FIXED;
+      return await fetch(
+        `http://api.currencylayer.com/live?access_key=${key}&currencies=USD,EUR,RUB&format=1`
+      ).then((res) => res.json());
+    },
+  },
   modules: {
     auth,
+    userInfo,
   },
 });
