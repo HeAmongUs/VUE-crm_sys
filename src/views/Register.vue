@@ -122,17 +122,22 @@ export default {
     };
   },
   methods: {
-    submitHandler() {
+    async submitHandler() {
       if (this.v$.$invalid) {
         return;
       }
-      // const formData = {
-      //   email: this.email,
-      //   password: this.password,
-      //   name: this.name,
-      // };
+      const formData = {
+        email: this.email,
+        password: this.password,
+        name: this.name,
+      };
 
-      this.$router.push("/login");
+      try {
+        await this.$store.dispatch("register", formData);
+        this.$router.push("/login");
+      } catch (e) {
+        console.log(e);
+      }
     },
   },
 };
