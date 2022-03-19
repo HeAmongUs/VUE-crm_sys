@@ -132,7 +132,7 @@ export default {
         this.$store.dispatch("updateCategory", categoryData);
         this.$message("Категория обновлена");
         this.$emit("updated", categoryData);
-        this.updateSelectField()
+        this.updateSelectField();
       } catch (e) {
         console.log(e);
       }

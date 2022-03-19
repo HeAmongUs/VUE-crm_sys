@@ -10,7 +10,7 @@ export default {
           firebase.database,
           `users/${uid}/categories`
         );
-        const categories = (await get(categoriesListRef)).val() || null;
+        const categories = (await get(categoriesListRef)).val() || {};
         return Object.keys(categories).map((key) => ({
           ...categories[key],
           id: key,
