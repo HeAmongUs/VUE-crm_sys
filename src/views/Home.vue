@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import HomeCurrency from "../components/HomeCurrency";
-import HomeBill from "../components/HomeBill";
+import HomeCurrency from "../components/Home/HomeCurrency";
+import HomeBill from "../components/Home/HomeBill";
 import Loader from "../components/app/Loader";
 export default {
   name: "Home",

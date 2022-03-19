@@ -4,29 +4,47 @@
       <h3>Категории</h3>
     </div>
     <section>
-      <div class="row">
+      <loader v-if="isLoading" />
+      <div v-else class="row">
         <category-create @created="addNewCategory" />
-        <category-edit />
+        <category-edit
+          v-if="categories.length"
+          @updated="updateCategory"
+          :categories="this.categories"
+          :key="categories.key"
+        />
+        <p v-else class="center">На данный момент категорий нет.</p>
       </div>
     </section>
   </div>
 </template>
 
 <script>
-import CategoryEdit from "../components/CategoryEdit";
-import CategoryCreate from "../components/CategoryCreate";
+import CategoryEdit from "../components/Categories/CategoryEdit";
+import CategoryCreate from "../components/Categories/CategoryCreate";
+import Loader from "../components/app/Loader";
 export default {
   name: "CategoriesView",
-  components: { CategoryCreate, CategoryEdit },
+  components: { Loader, CategoryCreate, CategoryEdit },
   data() {
     return {
       categories: [],
+      isLoading: true,
     };
+  },
+  async mounted() {
+    this.categories = await this.$store.dispatch("fetchCategories");
+    this.isLoading = false;
   },
   methods: {
     addNewCategory(category) {
       this.categories.push(category);
-      console.log(this.categories);
+      this.categories = [...this.categories];
+    },
+    updateCategory(category) {
+      const index = this.categories.findIndex((c) => c.id === category.id);
+      this.categories[index].title = category.title;
+      this.categories[index].limit = category.limit;
     },
   },
 };
