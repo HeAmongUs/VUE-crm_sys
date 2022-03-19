@@ -70,13 +70,15 @@
 </template>
 
 <script>
-import { useVuelidate } from "@vuelidate/core";
+import useVuelidate from "@vuelidate/core";
 import { email, required, minLength } from "@vuelidate/validators";
 import messages from "@/utils/messages";
 
 export default {
   name: "LoginView",
-  setup: () => ({ v$: useVuelidate() }),
+  setup() {
+    return { v$: useVuelidate() };
+  },
   data() {
     return {
       email: "",
