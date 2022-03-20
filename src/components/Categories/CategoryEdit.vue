@@ -138,7 +138,6 @@ export default {
       }
     },
     updateSelectField() {
-      console.log("update");
       this.$nextTick(() => {
         this.select.destroy();
         this.select = window.M.FormSelect.init(this.$refs.select);
