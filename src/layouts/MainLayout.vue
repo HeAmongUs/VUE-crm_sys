@@ -29,6 +29,8 @@
 import Navbar from "@/components/app/Navbar";
 import Sidebar from "@/components/app/Sidebar";
 import Loader from "@/components/app/Loader";
+import messages from "@/utils/messages";
+
 export default {
   name: "MainLayout",
   components: { Loader, Navbar, Sidebar },
@@ -37,6 +39,16 @@ export default {
       isOpen: true,
       isLoading: true,
     };
+  },
+  omputed: {
+    error() {
+      return this.$store.getters.error;
+    },
+  },
+  watch: {
+    error(fbError) {
+      this.$errorMessage(messages[fbError.code] || "Что-то пошло не так");
+    },
   },
   async mounted() {
     if (!this.$store.getters.info?.length) {

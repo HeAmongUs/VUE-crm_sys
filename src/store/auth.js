@@ -9,7 +9,7 @@ import { ref, set } from "firebase/database";
 export default {
   actions: {
     async login({ dispatch, commit }, { email, password }) {
-      console.log(dispatch, commit);
+      console.log(dispatch);
       await signInWithEmailAndPassword(firebase.auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
@@ -21,7 +21,7 @@ export default {
         });
     },
     async register({ dispatch, commit }, { email, password, name }) {
-      console.log(dispatch, commit);
+      console.log(dispatch);
       await createUserWithEmailAndPassword(firebase.auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
