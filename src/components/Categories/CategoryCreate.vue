@@ -98,8 +98,6 @@ export default {
           title: this.title,
           limit: this.limit,
         });
-        this.title = "";
-        this.limit = 100;
         this.v$.$reset();
         this.$message("Категория создана");
         this.$emit("created", category);

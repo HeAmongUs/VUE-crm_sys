@@ -1,5 +1,5 @@
 import firebase from "@/firebase";
-import { ref, child, get } from "firebase/database";
+import { ref, child, get, update } from "firebase/database";
 
 export default {
   state: {
@@ -14,6 +14,18 @@ export default {
     },
   },
   actions: {
+    async updateInfo({ dispatch, commit, getters }, toUpdate) {
+      try {
+        const uid = await dispatch("getUid");
+        const updateData = { ...getters.info, ...toUpdate };
+        const updates = {};
+        updates[`users/${uid}/info`] = updateData;
+        await update(ref(firebase.database), updates);
+      } catch (e) {
+        commit("setError", e);
+        throw e;
+      }
+    },
     async queryUserInfo({ dispatch, commit }) {
       const uid = await dispatch("getUid");
       const dbRef = ref(firebase.database);
@@ -26,8 +38,9 @@ export default {
             return null;
           }
         })
-        .catch((error) => {
-          console.log(error);
+        .catch((e) => {
+          commit("setError", e);
+          throw e;
         });
     },
   },
