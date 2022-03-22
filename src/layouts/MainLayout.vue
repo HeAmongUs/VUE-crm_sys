@@ -12,11 +12,11 @@
         </div>
       </main>
 
-      <div class="fixed-action-btn">
+      <div class="fixed-action-btn" style="margin-right: 40px; margin-bottom: 40px">
         <router-link
           to="/record"
           class="btn-floating btn-large blue"
-          v-tooltip="'Добавить новую записб'"
+          v-tooltip="`Новая запись`"
         >
           <i class="large material-icons">add</i>
         </router-link>
