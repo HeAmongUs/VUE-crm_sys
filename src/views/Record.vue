@@ -96,14 +96,12 @@
 </template>
 
 <script>
-import Loader from "../components/app/Loader";
 import { useVuelidate } from "@vuelidate/core";
 import { minValue, required } from "@vuelidate/validators";
 import { mapGetters } from "vuex";
 
 export default {
   name: "Record",
-  components: { Loader },
   data() {
     return {
       select: null,

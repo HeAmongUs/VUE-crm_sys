@@ -24,10 +24,9 @@
 <script>
 import HomeCurrency from "../components/Home/HomeCurrency";
 import HomeBill from "../components/Home/HomeBill";
-import Loader from "../components/app/Loader";
 export default {
   name: "Home",
-  components: { Loader, HomeBill, HomeCurrency },
+  components: { HomeBill, HomeCurrency },
   data() {
     return {
       isLoading: true,

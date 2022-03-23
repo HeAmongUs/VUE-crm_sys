@@ -22,10 +22,9 @@
 <script>
 import CategoryEdit from "../components/Categories/CategoryEdit";
 import CategoryCreate from "../components/Categories/CategoryCreate";
-import Loader from "../components/app/Loader";
 export default {
   name: "CategoriesView",
-  components: { Loader, CategoryCreate, CategoryEdit },
+  components: { CategoryCreate, CategoryEdit },
   data() {
     return {
       categories: [],

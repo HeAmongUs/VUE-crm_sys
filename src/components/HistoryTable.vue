@@ -13,7 +13,7 @@
 
     <tbody>
       <tr v-for="(record, index) in records" :key="record.id">
-        <td>{{ index + 1 }}</td>
+        <td>{{ index + 1 + (page - 1) * itemsOnPage }}</td>
         <td>{{ currencyFilter(record.amount) }}</td>
         <td>{{ dateFilter(record.date, "datetime") }}</td>
         <td>{{ record.categoryName }}</td>
@@ -45,6 +45,14 @@ export default {
     records: {
       required: true,
       type: Array,
+    },
+    page: {
+      required: true,
+      type: Number,
+    },
+    itemsOnPage: {
+      required: true,
+      type: Number,
     },
   },
   data() {

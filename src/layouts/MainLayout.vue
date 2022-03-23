@@ -28,12 +28,11 @@
 <script>
 import Navbar from "@/components/app/Navbar";
 import Sidebar from "@/components/app/Sidebar";
-import Loader from "@/components/app/Loader";
 import messages from "@/utils/messages";
 
 export default {
   name: "MainLayout",
-  components: { Loader, Navbar, Sidebar },
+  components: { Navbar, Sidebar },
   data() {
     return {
       isOpen: true,

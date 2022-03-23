@@ -35,12 +35,8 @@
 <script>
 import { mapGetters } from "vuex";
 import currencyFilter from "@/filters/currencyFilter";
-
-import Loader from "../components/app/Loader";
 export default {
   name: "Planing",
-  components: { Loader },
-
   data() {
     return {
       isLoading: true,

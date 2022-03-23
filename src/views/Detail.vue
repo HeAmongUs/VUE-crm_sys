@@ -25,12 +25,10 @@
 </template>
 
 <script>
-import Loader from "../components/app/Loader";
 import dateFilter from "@/filters/dateFilter";
 import currencyFilter from "@/filters/currencyFilter";
 export default {
   name: "Detail",
-  components: { Loader },
 
   data() {
     return {
