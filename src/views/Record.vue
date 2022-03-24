@@ -179,7 +179,7 @@ export default {
 
           await this.$store.dispatch("updateInfo", { bill });
           this.$message("Запись создана");
-          this.v$.$reset()
+          this.v$.$reset();
         } catch (e) {
           console.log(e);
         }

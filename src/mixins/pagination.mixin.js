@@ -17,7 +17,7 @@ export default {
       this.items = this.allItems[this.page - 1] || this.allItems[0];
     },
     handlePageChange(page) {
-      this.$router.push(`${this.$route.path}?page=${page}`)
+      this.$router.push(`${this.$route.path}?page=${page}`);
       this.items = this.allItems[page - 1] || this.allItems[0];
     },
   },

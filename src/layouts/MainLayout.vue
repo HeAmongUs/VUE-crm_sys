@@ -4,7 +4,7 @@
     <div v-else class="app-main-layout">
       <Navbar @navbarClick="isOpen = !isOpen" />
 
-      <Sidebar :isOpen="isOpen" />
+      <Sidebar :isOpen="isOpen" :key="locale" />
 
       <main class="app-content" :class="{ full: !isOpen }">
         <div class="app-page">
@@ -12,11 +12,15 @@
         </div>
       </main>
 
-      <div class="fixed-action-btn" style="margin-right: 40px; margin-bottom: 40px">
+      <div
+        class="fixed-action-btn"
+        style="margin-right: 40px; margin-bottom: 40px"
+      >
         <router-link
           to="/record"
           class="btn-floating btn-large blue"
-          v-tooltip="`Новая запись`"
+          v-tooltip="localize('New_record')"
+          :key="locale"
         >
           <i class="large material-icons">add</i>
         </router-link>
@@ -29,6 +33,7 @@
 import Navbar from "@/components/app/Navbar";
 import Sidebar from "@/components/app/Sidebar";
 import messages from "@/utils/messages";
+import localizeFilter from "@/filters/localizeFilter";
 
 export default {
   name: "MainLayout",
@@ -37,11 +42,15 @@ export default {
     return {
       isOpen: true,
       isLoading: true,
+      localize: localizeFilter,
     };
   },
-  omputed: {
+  computed: {
     error() {
       return this.$store.getters.error;
+    },
+    locale() {
+      return this.$store.getters.info.locale;
     },
   },
   watch: {

@@ -1,0 +1,13 @@
+{
+  "ProfileTitle": "Профиль",
+  "ProfileUsername": "Имя пользователя",
+  "UpdateButton": "Обновить",
+  "LogoutButton": "Выйти",
+  "Message_EnterName": "Введите имя",
+  "Message_MinLength": "Минимальная длина",
+  "Bill": "Счет",
+  "History": "История",
+  "Planning": "Планирование",
+  "New_record": "Новая запись",
+  "Categories": "Категории"
+}

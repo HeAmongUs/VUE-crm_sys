@@ -23,13 +23,15 @@
           <ul id="dropdown" class="dropdown-content">
             <li>
               <router-link to="/profile" class="black-text">
-                <i class="material-icons">account_circle</i>Профиль
+                <i class="material-icons">account_circle</i
+                >{{ localize("ProfileTitle") }}
               </router-link>
             </li>
             <li class="divider" tabindex="-1"></li>
             <li>
               <a href="#" class="black-text" @click.prevent="logout">
-                <i class="material-icons">assignment_return</i>Выйти
+                <i class="material-icons">assignment_return</i
+                >{{ localize("LogoutButton") }}
               </a>
             </li>
           </ul>
@@ -41,6 +43,7 @@
 
 <script>
 import dateFilter from "@/filters/dateFilter";
+import localizeFilter from "@/filters/localizeFilter";
 
 export default {
   name: "Navbar",
@@ -49,6 +52,7 @@ export default {
     interval: null,
     dropdown: null,
     dateFilter: dateFilter,
+    localize: localizeFilter,
   }),
   methods: {
     async logout() {

@@ -1,9 +1,5 @@
 <template>
-  <ul
-    class="sidenav app-sidenav"
-    :class="{ open: isOpen }"
-    style="margin-top: 60px"
-  >
+  <ul class="sidenav app-sidenav" :class="{ open: isOpen }">
     <li
       v-for="link in links"
       :key="link.url"
@@ -20,6 +16,8 @@
 </template>
 
 <script>
+import localizeFilter from "@/filters/localizeFilter";
+
 export default {
   name: "Sidebar",
   props: {
@@ -31,11 +29,11 @@ export default {
   data() {
     return {
       links: [
-        { title: "Счет", url: "/" },
-        { title: "История", url: "/history" },
-        { title: "Планирование", url: "/planing" },
-        { title: "Новая запись", url: "/record" },
-        { title: "Категории", url: "/categories" },
+        { title: localizeFilter("Bill"), url: "/" },
+        { title: localizeFilter("History"), url: "/history" },
+        { title: localizeFilter("Planning"), url: "/planing" },
+        { title: localizeFilter("New_record"), url: "/record" },
+        { title: localizeFilter("Categories"), url: "/categories" },
       ],
     };
   },

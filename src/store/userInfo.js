@@ -21,6 +21,7 @@ export default {
         const updates = {};
         updates[`users/${uid}/info`] = updateData;
         await update(ref(firebase.database), updates);
+        commit("setInfo", updateData);
       } catch (e) {
         commit("setError", e);
         throw e;
