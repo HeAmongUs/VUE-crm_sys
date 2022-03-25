@@ -32,7 +32,7 @@ export default {
         { title: localizeFilter("Bill"), url: "/" },
         { title: localizeFilter("History"), url: "/history" },
         { title: localizeFilter("Planning"), url: "/planing" },
-        { title: localizeFilter("New_record"), url: "/record" },
+        { title: localizeFilter("NewRecord"), url: "/record" },
         { title: localizeFilter("Categories"), url: "/categories" },
       ],
     };

@@ -5,9 +5,10 @@
   "LogoutButton": "Выйти",
   "Message_EnterName": "Введите имя",
   "Message_MinLength": "Минимальная длина",
+  "Profile": "Профиль",
   "Bill": "Счет",
   "History": "История",
   "Planning": "Планирование",
-  "New_record": "Новая запись",
+  "NewRecord": "Новая запись",
   "Categories": "Категории"
 }

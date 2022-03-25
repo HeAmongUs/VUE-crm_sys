@@ -5,9 +5,10 @@
   "ProfileUsername": "Username",
   "Message_EnterName": "Enter username",
   "Message_MinLength": "Min length",
+  "Profile": "Profile",
   "Bill": "Bill",
   "History": "History",
   "Planning": "Planning",
-  "New_record": "New Record",
+  "NewRecord": "New Record",
   "Categories": "Categories"
 }

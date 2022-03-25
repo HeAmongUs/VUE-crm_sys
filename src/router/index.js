@@ -40,9 +40,9 @@ const routes = [
   },
   {
     path: "/planing",
-    name: "Planing",
+    name: "Planning",
     meta: { layout: "main", auth: true },
-    component: () => import("../views/Planing"),
+    component: () => import("../views/Planning"),
   },
   {
     path: "/profile",
@@ -52,7 +52,7 @@ const routes = [
   },
   {
     path: "/record",
-    name: "Record",
+    name: "NewRecord",
     meta: { layout: "main", auth: true },
     component: () => import("../views/Record"),
   },
